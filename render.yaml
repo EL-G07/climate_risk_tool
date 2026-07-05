@@ -6,11 +6,9 @@ services:
       pip install -r requirements.txt
       python -m nbconvert --to html --execute climaticscoring.ipynb || true
       python -m nbconvert --to html --execute Financial_risk_tool.ipynb || true
-    startCommand: voila prediction.ipynb --port=$PORT --no-browser --VoilaConfiguration.port=$PORT
+    startCommand: voila prediction.ipynb --port=$PORT --no-browser --VoilaConfiguration.ip=$PORT
     plan: free
     autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.18
-      - key: VOILA_DEBUG
-        value: false
